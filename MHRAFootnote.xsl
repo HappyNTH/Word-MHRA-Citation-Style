@@ -163,7 +163,7 @@
         <format>{%CitationPrefix%}[[%Tag%]]{%CitationSuffix%}</format>
       </source>
       <source type="ArticleInAPeriodical">
-        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PeriodicalTitle%&lt;/i&gt;}{, {{%Day% }%Month:s% }%Year%}{, %Comments%}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%}.{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PeriodicalTitle%&lt;/i&gt;}{, {{%Day% }%Month:s% }%Year%}{, %Comments%}{, %Pages:p. :pp. :a2%}{ (%CitationPages:p. :pp. :a2%)}.{%CitationSuffix%}</format>
       </source>
       <source type="Book">
         <format>{%CitationPrefix%}{%Author:1%}{, &lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:o% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%}.{%CitationSuffix%}</format>
