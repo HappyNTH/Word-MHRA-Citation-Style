@@ -128,6 +128,7 @@
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:JournalName</b:ImportantField>
         <b:ImportantField>b:Volume</b:ImportantField>
+        <b:ImportantField>b:Issue</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
       </source>
@@ -166,28 +167,28 @@
         <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PeriodicalTitle%&lt;/i&gt;}{, {{%Day% }%Month:s% }%Year%}{, %Comments%}{, %Pages:p. :pp. :a2%}{ (%CitationPages:p. :pp. :a2%)}.{%CitationSuffix%}</format>
       </source>
       <source type="Book">
-        <format>{%CitationPrefix%}{%Author:1%}{, &lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:o% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%}.{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1%}{, &lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:os% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%} { &lt;%URL:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}.{%CitationSuffix%}</format>
       </source>
       <source type="BookSection">
-        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%BookTitle%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:o% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{ (%CitationPages:p. :pp. :a2%)}.{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%BookTitle%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:os% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%} { &lt;%URL:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}.{%CitationSuffix%}</format>
       </source>
       <source type="ConferenceProceedings">
-        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%ConferenceName%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:o% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{ (%CitationPages:p. :pp. :a2%)}.{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%ConferenceName%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:os% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%}.{%CitationSuffix%}</format>
       </source>
       <source type="DocumentFromInternetSite">
-        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%InternetSiteTitle%&lt;/i&gt;}{ &lt;%URL:l%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%InternetSiteTitle%&lt;/i&gt;}{ &lt;%url:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}{%CitationSuffix%}</format>
       </source>
       <source type="ElectronicSource">
-        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PublicationTitle%&lt;/i&gt;}{, %Volume%{ (%Year%)}}{, %Year%}{ &lt;%URL:l%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PublicationTitle%&lt;/i&gt;}{, %Volume%{ (%Year%)}}{, %Year%}{ &lt;%url:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}{%CitationSuffix%}</format>
       </source>
       <source type="Film">
         <format>{%CitationPrefix%}{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{, dir. by %Director:1%} ({%Distributor%{, %Year%}}{%Year%}){ (%CitationPages:p. :pp. :a2%)}.{%CitationSuffix%}</format>
       </source>
       <source type="InternetSite">
-        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%InternetSiteTitle%&lt;/i&gt;}{ &lt;%URL:l%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%InternetSiteTitle%&lt;/i&gt;}{ &lt;%url:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}{%CitationSuffix%}</format>
       </source>
       <source type="JournalArticle">
-        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%JournalName%&lt;/i&gt;}{, %Volume%{ (%Year%)}}{, %Year%}{, %Pages:::a2%}{ (%CitationPages:p. :pp. :a2%)}{ &lt;%URL:l%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}.{%CitationSuffix%}</format>
+        <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%JournalName%&lt;/i&gt;}{, %Volume%{.%Issue%}}{ (%Year%)}{, %Pages:::a2%}{ (%CitationPages:p. :pp. :a2%)}{ &lt;%url:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}.{%CitationSuffix%}</format>
       </source>
       <source type="Report">
         <format>{%CitationPrefix%}{%Author:1%}{, '%Title|ShortTitle%'} ({%ThesisType|"unpublished thesis"%{, %Institution%}{, %Department%}{, %Year%}}{%Institution%{, %Year%}}{%Year%}){, %CitationPages:p. :pp. :a2|Pages:::a2%}.{%CitationSuffix%}</format>
