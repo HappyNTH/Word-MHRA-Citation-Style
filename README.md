@@ -4,7 +4,7 @@ A custom citation/bibliography style for Microsoft Word 2016 to allow use of Wor
 ## A Note on the Bibliography
 Bibliographies are generated according to the MHRA style guide, with some important notes:
 
-### Primary and secondary sources. 
+### Primary and Secondary Sources 
 The bibliography is sorted first by each source's comments field, then by author, then by year, and finally by title. As a result, the bibliography can be split into primary and secondary sources by adding a number to the comments field of each source (e.g. "1" for primary sources and "2" for secondary sources). If the comment field is left blank, the field will default to a '2' (i.e., a secondary source), such that you do not need to number each secondary source individually, or at all if you do not wish to use this feature.
 
 ### Hypens instead of a Name for Second & Subsequent Sources
