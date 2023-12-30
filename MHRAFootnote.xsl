@@ -3,9 +3,9 @@
 <!-- 
      Stylesheet for Microsoft Word 2016 Bibliography formatting.
      
-     Author(s): Clara Rayner (claraarayner@gmail.com)
+     Author(s): Clara (happynotthehippo@gmail.com)
                
-     Copyright: Copyright (c) 2023 Clara Rayner
+     Copyright: Copyright (c) 2023 Clara
 
                 Permission is hereby granted, free of charge, to any person obtaining a
                 copy of this software and associated documentation files (the "Software"),
@@ -31,14 +31,18 @@
   <!-- Variable containing all necessary data for a certain style of bibliography. -->
   <xsl:variable name="data">
     <general>
-      <stylename>MHRA - Footnotes</stylename>
-      <version>2023.12.13</version>
+      <stylename>MHRA</stylename>
+      <version>2023.12.30</version>
       <xslversion>2013</xslversion>
-      <author>Clara Rayner (claraarayner@gmail.com)</author>
+      <author>Clara (happynotthehippo@gmail.com)</author>
       <comments>
         This is a revived version of the MHRA style, which was originally created by Yves Dhondt (yves.dhondt@gmail.com) and based on version 2.1 of the BibWord stylesheet.
         It has been updated to work with Word 2016 and brought in line with the 2013, 3rd edition MHRA style guide.
-        The style is designed to be used with footnotes. Bibliographies are not yet supported.
+        The style is designed to be used with footnotes, rather than in-text citations. MHRA is weird like that: I don't much like it, and yet here I am. Merry Christmas, A.
+        Bibliographies are generated according to the MHRA style guide. The bibliography is sorted first by each source's comments field, then by author, then by year, and finally by title.
+        As a result, the bibliography can be split into primary and secondary sources by adding a number to the comments field of each source (e.g. "1" for primary sources and "2" for secondary sources).
+        If the comment field is left blank, the field will default to a '2' (i.e., a secondary source), such that you do not need to number each secondary source individually, or at all if you do not wish to use this feature.
+        Unfortunately, the stylesheet cannot automatically add a hyphen to the first line of each author's work. This will need to be done manually, but I hope that the stylesheet will still save you some time.
       </comments>
       <display_errors>yes</display_errors>
     </general>
@@ -51,6 +55,7 @@
         <b:ImportantField>b:Month</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="Book">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -62,6 +67,7 @@
         <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Publisher</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="BookSection">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -74,6 +80,7 @@
         <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Publisher</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="ConferenceProceedings">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -86,6 +93,7 @@
         <b:ImportantField>b:City</b:ImportantField>
         <b:ImportantField>b:Publisher</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="DocumentFromInternetSite">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -95,6 +103,7 @@
         <b:ImportantField>b:YearAccessed</b:ImportantField>
         <b:ImportantField>b:MonthAccessed</b:ImportantField>
         <b:ImportantField>b:DayAccessed</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="ElectronicSource">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -107,12 +116,14 @@
         <b:ImportantField>b:MonthAccessed</b:ImportantField>
         <b:ImportantField>b:DayAccessed</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="Film">
         <b:ImportantField>b:Author/b:Director/b:NameList</b:ImportantField>
         <b:ImportantField>b:Title</b:ImportantField>
         <b:ImportantField>b:Distributor</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="InternetSite">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -122,6 +133,7 @@
         <b:ImportantField>b:YearAccessed</b:ImportantField>
         <b:ImportantField>b:MonthAccessed</b:ImportantField>
         <b:ImportantField>b:DayAccessed</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="JournalArticle">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -131,6 +143,7 @@
         <b:ImportantField>b:Issue</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="Report">
         <b:ImportantField>b:Author/b:Author/b:NameList</b:ImportantField>
@@ -140,6 +153,7 @@
         <b:ImportantField>b:Department</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
         <b:ImportantField>b:Pages</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
       <source type="SoundRecording">
         <b:ImportantField>b:Author/b:Artist/b:NameList</b:ImportantField>
@@ -151,6 +165,7 @@
         <b:ImportantField>b:ProductionCompany</b:ImportantField>
         <b:ImportantField>b:RecordingNumber</b:ImportantField>
         <b:ImportantField>b:Year</b:ImportantField>
+        <b:ImportantField>b:Comments</b:ImportantField>
       </source>
     </importantfields>
     <citation>
@@ -198,13 +213,139 @@
       </source>
     </citation>
     <bibliography>
+      <columns>1</columns>
+      <source type="Placeholder">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>[[%Tag%]]</format>
+        </column>
+      </source>
+      <source type="ArticleInAPeriodical">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PeriodicalTitle%&lt;/i&gt;}{, {{%Day% }%Month:s% }%Year%}{, %Comments%}{, %Pages:p. :pp. :a2%}{ (%CitationPages:p. :pp. :a2%)}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
+      <source type="Book">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, &lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:os% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p.]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%} { &lt;%URL:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Editor:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
+      <source type="BookSection">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%BookTitle%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:os% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p.]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%} { &lt;%URL:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Editor:0|BookAuthor:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
+      <source type="ConferenceProceedings">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%ConferenceName%&lt;/i&gt;}{, ed. by %Editor:1%}{, trans. by %Translator:1%}{, %ShortTitle%}{, %Edition:os% edn}{, %NumberVolumes% vols} (%City|CountryRegion|"[n.p.]"%{, %StateProvince%}: %Publisher|"[n.pub.]"%, %Year|"[n.d.]"%){, &lt;span style='font-variant: small-caps;'&gt;%Volume:R%&lt;/span&gt;{, %Pages:::a2%}}{, %Pages:p. :pp. :a2%}{, %CitationPages:p. :pp. :a2%}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
+      <source type="DocumentFromInternetSite">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%InternetSiteTitle%&lt;/i&gt;}{ &lt;%url:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Title|ShortTitle|InternetSiteTitle%}{ %Year%}{ %Title|ShortTitle|InternetSiteTitle%}</sortkey>
+      </source>
+      <source type="ElectronicSource">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%PublicationTitle%&lt;/i&gt;}{, %Volume%{ (%Year%)}}{, %Year%}{ &lt;%url:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Title|ShortTitle|PublicationTitle%}{ %Year%}{ %Title|ShortTitle|PublicationTitle%}</sortkey>
+      </source>
+      <source type="Film">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{&lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{, dir. by %Director:2%} ({%Distributor%{, %Year%}}{%Year%}){ (%CitationPages:p. :pp. :a2%)}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
+      <source type="InternetSite">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, '%Title|ShortTitle%'}{, in &lt;i&gt;%InternetSiteTitle%&lt;/i&gt;}{ &lt;%url:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}{{ (%CitationPages:p. :pp. :a2|Pages:p. :pp. :a2%)}}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Title|ShortTitle|InternetSiteTitle%}{ %Year%}{ %Title|ShortTitle|InternetSiteTitle%}</sortkey>
+      </source>
+      <source type="JournalArticle">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, '%Title|ShortTitle%'}{, &lt;i&gt;%JournalName%&lt;/i&gt;}{, %Volume%{.%Issue%}}{ (%Year%)}{, %Pages:::a2%}{ (%CitationPages:p. :pp. :a2%)}{ &lt;%url:ls%&gt;{ [accessed {{%DayAccessed% }%MonthAccessed:s% }%YearAccessed%]}}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
+      <source type="Report">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Author:2%}{, '%Title|ShortTitle%'} ({%ThesisType|"unpublished thesis"%{, %Institution%}{, %Department%}{, %Year%}}{%Institution%{, %Year%}}{%Year%}){, %CitationPages:p. :pp. :a2|Pages:::a2%}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
+      <source type="SoundRecording">
+        <column id="1">
+          <halign>left</halign>
+          <valign>top</valign>
+          <format>{%Composer:2|Author:2%}{, &lt;i&gt;%Title|ShortTitle%&lt;/i&gt;}{, %Artist:1%}{, cond. by %Conductor:1%}{, dir. by %Director:1%}{, perf. by %Performer:1%} ({%ProductionCompany|Producer:1%{, %RecordingNumber%}{, %Year%}}{%RecordingNumber%{, %Year%}}{%Year%}).{ (%CitationPages:p. :pp. :a2%)}</format>
+        </column>
+        <sortkey>{%Comments%|"2"}{%Composer:0|Author:0|Title|ShortTitle%}{ %Year%}{ %Title|ShortTitle%}</sortkey>
+      </source>
     </bibliography>
     <namelists>
+      <list name="sort" id="0">
+        <single_prefix></single_prefix>
+        <multi_prefix></multi_prefix>
+        <corporate>{%Corporate%}</corporate>
+        <first_person>{%Last|First%}</first_person>
+        <other_persons>{%Last|First%}</other_persons>
+        <separator_between_if_two> </separator_between_if_two>
+        <separator_between_if_more_than_two> </separator_between_if_more_than_two>
+        <separator_before_last></separator_before_last>
+        <max_number_of_persons_to_display>500</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>500</number_of_persons_to_display_if_more_than_max>
+        <overflow></overflow>
+        <single_suffix></single_suffix>
+        <multi_suffix></multi_suffix>
+      </list>
       <list name="author" id="1">
         <single_prefix></single_prefix>
         <multi_prefix></multi_prefix>
         <corporate>{%Corporate%}</corporate>
         <first_person>{%First% }{%Middle% }{%Last%}</first_person>
+        <other_persons>{%First% }{%Middle% }{%Last%}</other_persons>
+        <separator_between_if_two> and </separator_between_if_two>
+        <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
+        <separator_before_last> and </separator_before_last>
+        <max_number_of_persons_to_display>3</max_number_of_persons_to_display>
+        <number_of_persons_to_display_if_more_than_max>1</number_of_persons_to_display_if_more_than_max>
+        <overflow> and others</overflow>
+        <single_suffix></single_suffix>
+        <multi_suffix></multi_suffix>
+      </list>
+      <list name="author bib" id="2">
+        <single_prefix></single_prefix>
+        <multi_prefix></multi_prefix>
+        <corporate>{%Corporate%}</corporate>
+        <first_person>{%Last%}, {%First%}{ %Middle%}</first_person>
         <other_persons>{%First% }{%Middle% }{%Last%}</other_persons>
         <separator_between_if_two> and </separator_between_if_two>
         <separator_between_if_more_than_two>, </separator_between_if_more_than_two>
